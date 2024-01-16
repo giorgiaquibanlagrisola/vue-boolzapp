@@ -149,6 +149,14 @@ main > .contact-container > img {
 
 }
 
+.contact-container:hover {
+    background-color: #E9EBEB;
+}
+
+.contact-container.active {
+    background-color: #E9EBEB;
+}
+
 #app > section > main {
     width: 100%;
     height: calc(100% - 120px);
@@ -159,7 +167,12 @@ main > .contact-container > img {
 #app > section > footer {
     width: 100%;
     height: 60px;
-    background-color: blue;
+    background-color: #F3EEEA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    padding: 3%;
 }
 
 #section-contact {
@@ -176,4 +189,17 @@ main > .contact-container > img {
     font-size: 1.3em;
     padding-right: 3%;
     color: #B1B1B1;
+}
+
+
+#input-message {
+    height: 45px;
+    flex-grow: 1;
+    display: flex;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#input-message > input {
+    flex-grow: 1;
 }
