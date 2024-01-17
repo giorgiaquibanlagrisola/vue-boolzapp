@@ -61,11 +61,15 @@
                 </section>
 
                 <main>
-                    <div class="contact-container active">
-                        <img src="img/avatar_1.jpg" alt="Michele">
+                    <div v-for="(contact, i) in contacts" class="contact-container"
+                        :class="{
+                            'active': i == activeContact
+                        }"
+                        @click="changeContact(i)">
+                        <img :src="contact.avatar" :alt="contact.name">
                         <div>
                             <p>
-                                Michele
+                                {{ contact.name }}
                             </p>
                             <p>
                                 Ultimo messaggio inviato
@@ -75,6 +79,8 @@
                             12:00
                         </span>
                     </div>
+
+                    <!--
 
                     <div class="contact-container">
                         <img src="img/avatar_2.jpg" alt="Michele">
@@ -180,6 +186,7 @@
                             12:00
                         </span>
                     </div>
+                -->
                 </main>
 
             </aside>
@@ -189,11 +196,11 @@
                     
                     <div id="section-contact">
                         <div id="avatar-container">
-                            <img src="img/avatar_1.jpg" alt="">
+                            <img :src="contacts[activeContact].avatar" alt="contacts[activeContact].name">
                         </div>
                         <div>
                             <p>
-                            Michele
+                                {{ contacts[activeContact].name }}
                             </p>
                             <p>
                                 Ultimo accesso oggi alle 12:00
@@ -208,7 +215,47 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </header>
-                <main></main>
+
+                <main>
+
+                    <div v-for="(singleMessage, i) in contacts[activeContact].messages" class="message-container"
+                        :class="{'sent' : singleMessage.status == 'sent',
+                                 'received' : singleMessage.status == 'received'}">
+                        
+                        <div class="message">
+                            <div class="text-message">
+                                {{ singleMessage.message }}
+                            </div>
+                            <div class="time-message">
+                                {{ singleMessage.date }}
+                            </div>
+                        </div>
+                    </div>
+                <!--
+                    <div class="message-container sent">
+                        <div class="message">
+                            <div class="text-message">
+                                Ricordati di stendere i panni
+                            </div>
+                            <div class="time-message">
+                                15:50
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="message-container received">
+                        <div class="message">
+                            <div class="text-message">
+                                Tutto fatto!
+                            </div>
+                            <div class="time-message">
+                                16:15
+                            </div>
+                        </div>
+                    </div>
+                -->
+
+                </main>
 
                 <footer>
 

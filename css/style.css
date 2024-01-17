@@ -203,3 +203,35 @@ main > .contact-container > img {
 #input-message > input {
     flex-grow: 1;
 }
+
+.message-container {
+    display: flex;
+}
+
+.message-container.sent {
+    justify-content: flex-end;
+}
+
+.message-container.sent > .message {
+    background-color: #D5F9BA;
+}
+
+.message-container.received > .message {
+    background-color: #FFFFFF;
+}
+
+.message {
+    margin: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 1%;
+    border-radius: 6%;
+}
+
+.time-message {
+    display: flex;
+    justify-content: flex-end;
+    color: grey;
+    font-size: 0.6em;
+    padding-top: 2%;
+}
