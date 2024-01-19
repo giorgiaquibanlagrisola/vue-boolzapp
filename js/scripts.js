@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             activeContact: 0,
+            textMessage: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -173,6 +174,28 @@ createApp({
     methods: {
         changeContact(index) {
             this.activeContact = index;
+        },
+
+        addTextMessage() {
+            const newMessage = {
+                date: '17/01/2024 16:30:00',
+                message: this.textMessage,
+                status: 'sent'
+            };
+
+            this.contacts[this.activeContact].messages.push(newMessage);
+
+            this.textMessage = '';
+
+            setTimeout(() => {
+                const replyMessage = {
+                    date: '17/01/2024 16:35:00',
+                    message: 'Ok',
+                    status: 'received'
+                };
+
+            this.contacts[this.activeContact].messages.push(replyMessage);
+            }, 1000);
         }
     }
 }).mount('#app');
